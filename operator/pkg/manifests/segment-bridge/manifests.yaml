@@ -63,6 +63,18 @@ rules:
   verbs:
   - list
 - apiGroups:
+  - appstudio.redhat.com
+  resources:
+  - applications
+  verbs:
+  - list
+- apiGroups:
+  - appstudio.redhat.com
+  resources:
+  - releases
+  verbs:
+  - list
+- apiGroups:
   - config.openshift.io
   resources:
   - clusterversions
@@ -134,7 +146,7 @@ spec:
             - secretRef:
                 name: segment-bridge-config
                 optional: true
-            image: quay.io/konflux-ci/segment-bridge:1a6006607dd46f61bb35774db190847a65d35541
+            image: quay.io/konflux-ci/segment-bridge:b49b9dc2e48f2add4d443b5cf82600525caf92df
             imagePullPolicy: IfNotPresent
             name: segment-bridge
             resources:

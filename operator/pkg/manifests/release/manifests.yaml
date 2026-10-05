@@ -308,6 +308,14 @@ spec:
                 items:
                   type: string
                 type: array
+              allowedServiceAccounts:
+                description: |-
+                  AllowedServiceAccounts is the list of ServiceAccount names allowed for PipelineRun execution.
+                  When non-empty, only InternalRequests specifying a ServiceAccount in this list will be allowed.
+                  When empty, any ServiceAccount is permitted.
+                items:
+                  type: string
+                type: array
               debug:
                 description: Debug sets the operator to run in debug mode. In this
                   mode, PipelineRuns and PVCs will not be removed
@@ -5270,7 +5278,7 @@ spec:
               key: token
               name: release-service-github-token
               optional: true
-        image: quay.io/konflux-ci/release-service:3f78e9ca61075d10298f9edcb3902a50e92628c2
+        image: quay.io/konflux-ci/release-service:a2b26d52243820375e27dcc4ba81f5b307792dc3
         livenessProbe:
           httpGet:
             path: /healthz
